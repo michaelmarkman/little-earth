@@ -1,0 +1,65 @@
+.meta{
+  position: fixed; 
+  bottom: 0; 
+  left: 0;
+  z-index: 1;
+  background: rgba(0,30,0,.5);
+  padding: 1px 5px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 50px;
+  color: #aaa;
+}
+
+.top{
+  position: fixed; 
+  top: 0; 
+  left: 0;
+  z-index: 1;
+  background: rgba(0,30,0,.5);
+  padding: 1px 5px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 50px;
+  color: #aaa;
+}
+
+.meta a{
+  color: #bbb;
+}
+
+input[type="text"] {
+  display: flex;
+  margin: 0;
+  width: 100%;
+  height: 30px;
+  font-family: sans-serif;
+  font-size: 18px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border-width: 0;
+}
+
+.btn {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #545454;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-width: 0;
+  width: 100%;
+  float: left;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}

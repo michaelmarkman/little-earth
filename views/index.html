@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather Earth</title>
+    <meta name="description" content="Earth in WebVR!">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/IdeaSpaceVR/aframe-particle-system-component/f9b9985b7ae7216b5275c566a98ec55dba6a64c9/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+          integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+          crossorigin="anonymous"></script>
+    <script src="/client.js"></script>
+  
+  </head>
+  <body>
+    <div class="top">
+      <input type="text" id="text" name="name" value="" />
+      <input class="btn" type="button" id="text_value" value="Get The Weather"/>
+    </div>
+    <a-scene fog="type: exponential">
+      <a-assets>
+        <img id="sky" src="https://cdn.glitch.com/4bdc937e-543e-4b0b-ae40-27afe346404a%2Fnightsky.jpg?1491096117462">
+        <img id="earth" src="https://cdn.glitch.com/4bdc937e-543e-4b0b-ae40-27afe346404a%2FMapOfEarth.jpg?1491096483136">
+        <img id="clouds" src="https://cdn.glitch.com/4bdc937e-543e-4b0b-ae40-27afe346404a%2Fclouds.png?1491110023655">
+        <img id="moon" src="https://cdn.glitch.com/4bdc937e-543e-4b0b-ae40-27afe346404a%2Frsz_moon.jpg?1491100234279">
+      </a-assets>
+      <a-entity position="0 2.25 -15" particle-system="preset: dust; type: 2; color: #fffff,#000033; size: .2" ></a-entity>
+      <a-entity position="0 -2.25 15" particle-system="preset: dust; type: 2; color: #fffff,#330000; size: .2" ></a-entity>
+      <a-entity>
+        <a-animation attribute="rotation"
+                 easing="linear" 
+                 dur="100000"
+                 fill="forwards"
+                 to="0 360 0"
+                 repeat="indefinite"></a-animation>
+        <a-sphere position="0 .25 0" radius="2.28" material="src:#clouds;opacity: .99">
+          <a-animation attribute="rotation"
+                 easing="linear" 
+                 dur="220000"
+                 fill="forwards"
+                 from="210 -270 0"      
+                 to="-150 90 0"
+                 repeat="indefinite"></a-animation>
+        </a-sphere>
+        <a-sphere position="0 .25 0" radius="2.25" material="src:#earth; metalness: ; roughness: 1;">
+          <a-animation attribute="rotation"
+                 easing="linear" 
+                 dur="150000"
+                 fill="forwards"
+                 to="0 360 0"
+                 repeat="indefinite"></a-animation>
+
+          <!--<a-entity position="20 0 1">
+            <a-sphere position="0 0 0" radius=".75" material="src:#moon;  roughness: 1;"></a-sphere>
+            <a-animation attribute="rotation"
+                 easing="linear"         
+                 dur="1000"
+                 fill="forwards"
+                 to="0 360 0"
+                 repeat="indefinite"></a-animation>
+          </a-entity>-->
+
+        </a-sphere>
+      </a-entity>  
+      <a-entity light="color: #fff4cc; intensity: 1.75" position=".7 0 -1"></a-entity>
+      <a-sky src="#sky" rotation="0 -90 0">
+      <a-animation attribute="rotation" fill="forwards" easing="linear" dur="2000000" from="0 -90 -1" to="0 270 0" repeat="indefinite"></a-animation>
+      </a-sky>
+      <a-entity camera="userHeight: 1.6" look-controls position="12 0 0" rotation="0 90 0"></a-entity>
+    </a-scene>
+    <div class="meta">
+      City: <span id="city"></span>
+      <br/>
+      Weather: <span id="weather"></span>
+      <br/>
+      Description: <span id="desc"></span>
+      <br/>
+      Temperature: <span id="temp"></span>
+    </div>
+  </body>
+</html>
